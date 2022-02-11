@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { postUserCreate } from "../actions/userAction";
 import BackComponent from "../components/BackComponent";
 import FormComponent from "../components/FormComponent";
 
-export default class CreateUsersContainer extends Component {
+class CreateUsersContainer extends Component {
   handleSubmit(data) {
+    console.log(data);
+    this.props.dispatch(postUserCreate(data));
     console.log(data);
   }
   render() {
@@ -16,3 +20,4 @@ export default class CreateUsersContainer extends Component {
     );
   }
 }
+export default connect()(CreateUsersContainer);
